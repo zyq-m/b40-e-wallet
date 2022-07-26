@@ -73,7 +73,7 @@ const loginStudents = (request, response) => {
   const { matric_no, password } = request.body;
 
   pool.query(
-    "SELECT matric_no FROM matric_no = $1 AND no_ic = $1",
+    "SELECT matric_no FROM students WHERE matric_no = $1 AND ic_no = $2",
     [matric_no, password],
     (error, results) => {
       if (error) return response.sendStatus(500);
