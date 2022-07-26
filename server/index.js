@@ -26,7 +26,7 @@ app.put("/cafe/:id/suspend", cafe.suspendCafe);
 app.get("/cafe/:id/transactions", cafe.getTransactions);
 
 app.get("/transactions", transaction.getTransactions);
-app.post("/cafe/:id/pay", transaction.pay);
+app.post("/transactions/cafe/:id", transaction.pay);
 
 app.get("/", (req, res) => {
   res.json({ docs: "I am a full-stack dev" });
