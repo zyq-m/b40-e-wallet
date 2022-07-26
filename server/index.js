@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const user = require("./queries/studentsQueries");
+const student = require("./queries/studentsQueries");
 const cafe = require("./queries/cafeOwnersQueries");
 const transaction = require("./queries/transactionsQueries");
 const port = 3000;
@@ -13,11 +13,12 @@ app.use(
   })
 );
 
-app.get("/students", user.getStudents);
-app.get("/students/:id", user.getStudentsById);
-app.post("/students", user.createStudent);
-app.put("/students/:id/wallet", user.setWalletAmount);
-app.put("/students/:id/suspend", user.suspendStudents);
+app.get("/students", student.getStudents);
+app.get("/students/:id", student.getStudentsById);
+app.post("/students", student.createStudent);
+app.post("/student/login", student.loginStudents);
+app.put("/students/:id/wallet", student.setWalletAmount);
+app.put("/students/:id/suspend", student.suspendStudents);
 
 app.get("/cafe", cafe.getCafe);
 app.get("/cafe/:id", cafe.getCafeById);
