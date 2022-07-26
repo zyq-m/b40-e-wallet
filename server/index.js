@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const user = require("./queries/studentsQueries");
 const cafe = require("./queries/cafeOwnersQueries");
+const transaction = require("./queries/transactionsQueries");
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -23,6 +24,9 @@ app.get("/cafe/:id", cafe.getCafeById);
 app.post("/cafe", cafe.createCafe);
 app.put("/cafe/:id/suspend", cafe.suspendCafe);
 app.get("/cafe/:id/transactions", cafe.getTransactions);
+
+app.get("/transactions", transaction.getTransactions);
+app.post("/cafe/:id/pay", transaction.pay);
 
 app.get("/", (req, res) => {
   res.json({ docs: "I am a full-stack dev" });
