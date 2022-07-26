@@ -4,6 +4,7 @@ const app = express();
 const student = require("./queries/studentsQueries");
 const cafe = require("./queries/cafeOwnersQueries");
 const transaction = require("./queries/transactionsQueries");
+const admin = require("./queries/adminQueries");
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -30,9 +31,7 @@ app.get("/cafe/:id/transactions", cafe.getTransactions);
 app.get("/transactions", transaction.getTransactions);
 app.post("/transactions/cafe/:id", transaction.pay);
 
-app.get("/", (req, res) => {
-  res.json({ docs: "I am a full-stack dev" });
-});
+app.post("/admin", admin.loginAdmin);
 
 app.listen(port, () => {
   console.log(`app running on port ${port}`);
