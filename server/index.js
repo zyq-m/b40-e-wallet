@@ -23,6 +23,7 @@ app.put("/students/:id/suspend", student.suspendStudents);
 app.get("/cafe", cafe.getCafe);
 app.get("/cafe/:id", cafe.getCafeById);
 app.post("/cafe", cafe.createCafe);
+app.post("/cafe/login", cafe.loginCafe);
 app.put("/cafe/:id/suspend", cafe.suspendCafe);
 app.get("/cafe/:id/transactions", cafe.getTransactions);
 
