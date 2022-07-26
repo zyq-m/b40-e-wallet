@@ -69,10 +69,25 @@ const suspendStudents = (request, response) => {
   );
 };
 
+const loginStudents = (request, response) => {
+  const { matric_no, password } = request.body;
+
+  pool.query(
+    "SELECT matric_no FROM matric_no = $1 AND no_ic = $1",
+    [matric_no, password],
+    (error, results) => {
+      if (error) return response.sendStatus(500);
+      if (results.rowCount === 0) return response.sendStatus(404);
+      return response.sendStatus(200);
+    }
+  );
+};
+
 module.exports = {
   getStudents,
   getStudentsById,
   createStudent,
   setWalletAmount,
   suspendStudents,
+  loginStudents,
 };
