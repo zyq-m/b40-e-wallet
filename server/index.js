@@ -16,7 +16,7 @@ app.use(
 app.get("/students", student.getStudents);
 app.get("/students/:id", student.getStudentsById);
 app.post("/students", student.createStudent);
-app.post("/student/login", student.loginStudents);
+app.post("/students/login", student.loginStudents);
 app.put("/students/:id/wallet", student.setWalletAmount);
 app.put("/students/:id/suspend", student.suspendStudents);
 
