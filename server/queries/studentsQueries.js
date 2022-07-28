@@ -28,8 +28,7 @@ const createStudent = (request, response) => {
     "INSERT INTO students (matric_no, ic_no, student_name) VALUES ($1, $2, $3) RETURNING *",
     [matric_no, ic_no, name],
     (error, results) => {
-      if (error)
-        return response.status(500).send({ message: "Student already exist" });
+      if (error) return response.sendStatus(500);
       return response
         .status(201)
         .send(`User added with ID: ${results.rows[0].matric_no}`);
