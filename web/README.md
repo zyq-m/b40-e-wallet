@@ -3,4 +3,4 @@
 ### Tech use
 
 1. React js
-2. Tailwind
+2. Tailwind css
