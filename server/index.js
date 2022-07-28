@@ -1,11 +1,13 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const app = express();
-const student = require("./queries/studentsQueries");
-const cafe = require("./queries/cafeOwnersQueries");
-const transaction = require("./queries/transactionsQueries");
-const admin = require("./queries/adminQueries");
-const port = 3000;
+const authRouter = require("./routes/auth");
+const studentRouter = require("./routes/students");
+const cafeRouter = require("./routes/cafeOwners");
+const transactionRouter = require("./routes/transactions");
 
 app.use(bodyParser.json());
 app.use(
@@ -14,25 +16,25 @@ app.use(
   })
 );
 
-app.get("/students", student.getStudents);
-app.get("/students/:id", student.getStudentsById);
-app.post("/students", student.createStudent);
-app.post("/students/login", student.loginStudents);
-app.put("/students/:id/wallet", student.setWalletAmount);
-app.put("/students/:id/suspend", student.suspendStudents);
+const authenticateToken = (request, response, next) => {
+  const authHeader = request.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
 
-app.get("/cafe", cafe.getCafe);
-app.get("/cafe/:id", cafe.getCafeById);
-app.post("/cafe", cafe.createCafe);
-app.post("/cafe/login", cafe.loginCafe);
-app.put("/cafe/:id/suspend", cafe.suspendCafe);
-app.get("/cafe/:id/transactions", cafe.getTransactions);
+  if (token == null) return response.sendStatus(401);
 
-app.get("/transactions", transaction.getTransactions);
-app.post("/transactions/cafe/:id", transaction.pay);
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, user) => {
+    if (error) return response.sendStatus(403);
+    request.user = user;
+    next();
+  });
+};
 
-app.post("/admin", admin.loginAdmin);
+app.use(authRouter);
+app.use(authenticateToken);
+app.use(studentRouter);
+app.use(cafeRouter);
+app.use(transactionRouter);
 
-app.listen(port, () => {
-  console.log(`app running on port ${port}`);
+app.listen(3000, () => {
+  console.log("app running on port 3000");
 });
