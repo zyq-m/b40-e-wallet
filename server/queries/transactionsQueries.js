@@ -9,16 +9,13 @@ const getTransactions = (request, response) => {
 
 const pay = (request, response) => {
   const id = request.params.id;
-  const { amount, date, time, sender } = request.body;
-
+  const { sender, amount } = request.body;
   pool.query(
-    "INSERT INTO transactions (amount, date, time, sender, recipient) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-    [amount, date, time, sender, id],
+    "INSERT INTO transactions (sender, recipient, amount) VALUES ($1, $2, $3) RETURNING *",
+    [sender, id, amount],
     (error, results) => {
-      if (error) return response.status(500);
-      return response
-        .status(201)
-        .json(results.rows, { message: "Payment successfull" });
+      if (error) return response.status(500).send(error);
+      return response.status(201).json(results.rows);
     }
   );
 };
