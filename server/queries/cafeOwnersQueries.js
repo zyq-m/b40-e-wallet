@@ -70,7 +70,7 @@ const loginCafe = (request, response) => {
   const { username, password } = request.body;
 
   pool.query(
-    "SELECT matric_no FROM cafe_owners WHERE username = $1 AND password = $2",
+    "SELECT username FROM cafe_owners WHERE username = $1 AND password = $2",
     [username, password],
     (error, results) => {
       if (error) return response.sendStatus(500);
