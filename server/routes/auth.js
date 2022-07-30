@@ -94,8 +94,16 @@ router.post("/token", (req, res) => {
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
     if (err) return res.sendStatus(403);
     const accessToken = generateAccessToken({ user: user.user });
-    res.json({ accessToken: accessToken });
+
+    return res.json({ accessToken: accessToken });
   });
+});
+
+router.delete("/logout", (req, res) => {
+  const refreshToken = req.body.token;
+  refreshTokens = refreshTokens.filter(token => token !== refreshToken);
+
+  return res.sendStatus(204);
 });
 
 module.exports = router;
