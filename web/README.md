@@ -2,5 +2,5 @@
 
 ### Tech use
 
-- react js
-- tailwind css
+1. React js
+2. Tailwind css
