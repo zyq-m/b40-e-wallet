@@ -4,8 +4,7 @@
   "description": "RESTful API with Node.js and PostgreSQL",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
-    "server2": "nodemon authServer.js"
+    "server": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
