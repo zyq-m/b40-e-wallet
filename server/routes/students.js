@@ -31,9 +31,7 @@ const createStudent = (request, response) => {
     [matric_no, ic_no, name],
     (error, results) => {
       if (error) return response.sendStatus(500);
-      return response
-        .status(201)
-        .send(`User added with ID: ${results.rows[0].matric_no}`);
+      return response.sendStatus(201);
     }
   );
 };

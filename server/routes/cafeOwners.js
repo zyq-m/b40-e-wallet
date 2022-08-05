@@ -32,9 +32,7 @@ const createCafe = (request, response) => {
     (error, results) => {
       if (error)
         return response.status(500).send({ message: "Cafe already exist" });
-      return response
-        .status(201)
-        .send(`User added with ID: ${results.rows[0].username}`);
+      return response.sendStatus(201);
     }
   );
 };

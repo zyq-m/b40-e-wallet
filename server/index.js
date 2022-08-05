@@ -35,6 +35,6 @@ app.use(studentRouter);
 app.use(cafeRouter);
 app.use(transactionRouter);
 
-app.listen(3000, () => {
+app.listen(4000, () => {
   console.log("app running on port 3000");
 });
