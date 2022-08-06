@@ -11,8 +11,11 @@ const coregform = () => {
           <form>
             <div className="items-center">
               <Input type="fullname" placeholder="Full Name" />
+              <div className="mb-2" />
               <Input type="username" placeholder="Username" />
+              <div className="mb-2" />
               <Input type="cafename" placeholder="Cafe Name" />
+              <div className="mb-2" />
               <Input type="password" placeholder="Password" />
             </div>
             <button

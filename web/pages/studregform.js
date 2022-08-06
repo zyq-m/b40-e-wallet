@@ -2,7 +2,7 @@ import React from "react";
 
 const studregform = () => {
   return (
-    <div className="login min-h-screen grid place-items-center grid-rows-[max-content_1fr] bg-[#FFF7D9]">
+    <div className="min-h-screen grid place-items-center grid-rows-[max-content_1fr] bg-[#FFF7D9]">
       <div className="justify-self-start">
       </div>
       <div>
@@ -11,7 +11,9 @@ const studregform = () => {
           <form>
             <div className="items-center">
               <Input type="fullname" placeholder="Full Name" />
+              <div className="mb-2" />
               <Input type="matricnum" placeholder="Matric Number" />
+              <div className="mb-2" />
               <Input type="icnum" placeholder="IC Number" />
             </div>
             <button
