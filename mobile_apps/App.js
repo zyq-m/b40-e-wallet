@@ -11,12 +11,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BarCodeScanner } from "expo-barcode-scanner";
-import {
-  getUser,
-  updateBalance,
-  updatCafeBalance,
-  getCafeBalance,
-} from "./firebase";
+
+import Login from "./pages/Login";
 
 const Stack = createNativeStackNavigator();
 export const UserContext = createContext();
@@ -49,7 +45,7 @@ export default function App() {
   );
 }
 
-const Login = ({ navigation }) => {
+const Loginn = ({ navigation }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [cafeOwner, setCafeOwner] = useState(false);
@@ -168,48 +164,6 @@ const Pay = ({ navigation }) => {
 
   return (
     <View style={[styles.container, { justifyContent: "center" }]}>
-      {/* <View>
-        <Text style={{ fontWeight: "600", color: "gray" }}>Enter Amount</Text>
-        <View
-          style={{
-            paddingVertical: 8,
-            flexDirection: "row",
-            alignItems: "center",
-            borderBottomWidth: 1,
-          }}
-        >
-          {amount > 0.01 && (
-            <Text style={{ marginRight: 4, fontSize: 24, fontWeight: "800" }}>
-              RM
-            </Text>
-          )}
-          <TextInput
-            style={{
-              flex: 1,
-              fontSize: 24,
-              fontWeight: "800",
-            }}
-            onChangeText={setAmount}
-            keyboardType="numeric"
-            placeholder="0.00"
-          />
-        </View>
-        <TouchableOpacity
-          style={{
-            marginTop: 24,
-            paddingVertical: 10,
-            backgroundColor: "black",
-            borderRadius: rounded,
-          }}
-          onPress={handleTransfer}
-        >
-          <Text
-            style={{ textAlign: "center", color: "white", fontWeight: "500" }}
-          >
-            Transfer
-          </Text>
-        </TouchableOpacity>
-      </View> */}
       <Text style={{ fontWeight: "600", color: "gray", textAlign: "center" }}>
         Choose Amount
       </Text>
@@ -463,7 +417,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     // alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgb(245, 245, 245)",
+    backgroundColor: "black",
   },
   container: {
     flex: 1,
