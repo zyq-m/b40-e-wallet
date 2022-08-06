@@ -7,7 +7,15 @@
     url("../assets/shapes/traingle.png"), url("../assets/shapes/circle.png"),
     url("../assets/shapes/traingle.png"), url("../assets/shapes/circle.png"),
     url("../assets/shapes/traingle.png");
-  background-position: -30vw, 14vw -21vw, 83vw -19vw, 90vw 13vw, 52vw 44vw,
-    -18vw 47vw;
+    background-position: -56vh, 26vh -41vh, 156vh -43vh, 173vh 34vh, 93vh 83vh,
+    -12vh 78vh;
   background-repeat: no-repeat;
+  margin: 0 auto;
+}
+.centertable {
+  background-color: white;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%
 }
