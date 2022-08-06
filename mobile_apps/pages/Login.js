@@ -1,15 +1,12 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import React, { useState } from "react";
+import { View, Text, TextInput, StyleSheet, Image } from "react-native";
+
 import globals from "../styles/globals";
+import Button from "../components/Button";
 
 const Login = ({ navigation }) => {
+  const [cafeOwner, setCafeOwner] = useState(false);
+
   return (
     <View style={[globals.container, { justifyContent: "center" }]}>
       <View>
@@ -18,9 +15,21 @@ const Login = ({ navigation }) => {
           source={require("../assets/logo-unisza.png")}
         />
         <Text style={loginStyle.loginHeader}>Welcome Back</Text>
-        <Input label={"Matric No. |"} />
+        {cafeOwner ? (
+          <Input label={"Matric No. |"} />
+        ) : (
+          <Input label={"Username |"} />
+        )}
         <Input label={"Password |"} secure={true} />
-        <Button label={"Login"} />
+        <View style={{ marginTop: 37 }}>
+          <Button label={"Login"} />
+        </View>
+        <Text
+          style={loginStyle.smallText}
+          onPress={() => setCafeOwner(!cafeOwner)}
+        >
+          {cafeOwner ? "Are you a cafe owner?" : "Are you a student?"}
+        </Text>
       </View>
     </View>
   );
@@ -35,14 +44,6 @@ const Input = ({ label, secure }) => {
         secureTextEntry={secure ? true : false}
       />
     </View>
-  );
-};
-
-const Button = ({ label }) => {
-  return (
-    <TouchableOpacity>
-      <Text style={loginStyle.button}>{label}</Text>
-    </TouchableOpacity>
   );
 };
 
@@ -63,23 +64,22 @@ const loginStyle = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     borderRadius: 9,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "rgba(255, 255, 255, 1)",
   },
   inputLabel: {
     fontSize: 12,
-    color: "#A0A0A0",
+    color: "rgba(160, 160, 160, 1)",
   },
   input: {
     flex: 1,
     marginLeft: 10,
   },
-  button: {
-    marginTop: 37,
-    paddingVertical: 12,
+  smallText: {
+    marginTop: 21,
+    color: "rgba(0, 0, 0, 0.62)",
+    fontSize: 11,
+    fontWeight: "700",
     textAlign: "center",
-    fontWeight: "600",
-    backgroundColor: "#FFD400",
-    borderRadius: 9,
   },
 });
 
