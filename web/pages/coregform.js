@@ -1,9 +1,19 @@
 import React from "react";
+import images from "../assets/icons/index";
 
 const coregform = () => {
   return (
-    <div className="login min-h-screen grid place-items-center grid-rows-[max-content_1fr] bg-[#FFF7D9]">
+    <div className="min-h-screen grid place-items-center grid-rows-[max-content_1fr] bg-[#FFF7D9]">
       <div className="justify-self-start">
+      <button
+        className="ml-6 mt-6 w-15 opacity-70"
+      >
+        <img
+                className="justify-self-center w-[3.0rem]"
+                src={images.listbarIcon.src}
+                alt=""
+              />
+      </button>
       </div>
       <div>
         <div className="p-9 rounded-2xl shadow-md bg-white w-[35rem]">
