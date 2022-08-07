@@ -40,7 +40,7 @@ const coregform = () => {
                     <th>-</th>
                     <th>-</th>
                     <th>-</th>
-                    <th>-</th>
+                    <th><input type="checkbox" /></th>
                 </tr>
             </tbody>
           </table>
