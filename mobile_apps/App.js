@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Transactions"
+        initialRouteName="login"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="login" component={Login} />
@@ -25,12 +25,18 @@ export default function App() {
         <Stack.Screen
           name="QR Scan"
           component={QRScan}
-          options={{ headerShown: true }}
+          options={{
+            headerShown: true,
+            headerTitleAlign: "center",
+          }}
         />
         <Stack.Screen
           name="Transactions"
           component={Transaction}
-          options={{ headerShown: true }}
+          options={{
+            headerShown: true,
+            headerTitleAlign: "center",
+          }}
         />
       </Stack.Navigator>
       <StatusBar style="auto" />
