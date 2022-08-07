@@ -1,9 +1,11 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import { useState, useEffect } from "react";
+import { View, Image, TouchableOpacity } from "react-native";
 
 import TransactionItem from "../components/TransactionItem";
+import FilterList from "../components/FilterList";
 
 import globals from "../styles/globals";
+import transactionStyle from "../styles/transactionStyle";
 
 const data = [
   {
@@ -29,7 +31,32 @@ const data = [
   },
 ];
 
-const Transaction = () => {
+const Transaction = ({ navigation }) => {
+  const [collapse, setCollapse] = useState(false);
+
+  const onCollapse = () => setCollapse(!collapse);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <View style={transactionStyle.row}>
+          <TouchableOpacity>
+            <Image
+              style={transactionStyle.printIcon}
+              source={require("../assets/icons/print-icon.svg")}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={onCollapse}>
+            <Image
+              style={transactionStyle.fitlerIcon}
+              source={require("../assets/icons/filter-icon.svg")}
+            />
+          </TouchableOpacity>
+        </View>
+      ),
+    });
+  });
+
   return (
     <View style={[globals.container, { paddingTop: 24 }]}>
       {data.map(transaction => {
@@ -46,6 +73,8 @@ const Transaction = () => {
           </Wrapper>
         );
       })}
+
+      {collapse && <FilterList onCollapse={onCollapse} />}
     </View>
   );
 };
@@ -53,15 +82,5 @@ const Transaction = () => {
 const Wrapper = ({ children }) => {
   return <View style={transactionStyle.transactionItemWrap}>{children}</View>;
 };
-
-const transactionStyle = StyleSheet.create({
-  transactionItemWrap: {
-    marginTop: 6,
-    borderRadius: 9,
-    borderColor: "rgba(0, 0, 0, 0.08)",
-    borderWidth: 1,
-    overflow: "hidden",
-  },
-});
 
 export default Transaction;
