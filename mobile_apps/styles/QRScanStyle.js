@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const QRScanStyle = StyleSheet.create({
   square: {
@@ -12,9 +12,14 @@ const QRScanStyle = StyleSheet.create({
   scanner: {
     marginHorizontal: "auto",
     width: "70%",
-    height: "60%",
+    height: "40%",
     justifyContent: "space-between",
     alignItems: "stretch",
+  },
+  barcode: {
+    position: "absolute",
+    width: "136%",
+    height: Dimensions.get("screen").height,
   },
 });
 

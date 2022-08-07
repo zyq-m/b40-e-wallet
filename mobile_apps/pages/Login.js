@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Image } from "react-native";
 
-import globals from "../styles/globals";
 import Button from "../components/Button";
+
+import globals from "../styles/globals";
+import loginStyle from "../styles/loginStyle";
 
 const Login = ({ navigation }) => {
   const [cafeOwner, setCafeOwner] = useState(false);
@@ -10,10 +12,12 @@ const Login = ({ navigation }) => {
   return (
     <View style={[globals.container, { justifyContent: "center" }]}>
       <View>
-        <Image
-          style={loginStyle.logo}
-          source={require("../assets/logo-unisza.png")}
-        />
+        <View style={{ alignItems: "center" }}>
+          <Image
+            style={loginStyle.logo}
+            source={require("../assets/logo-unisza.png")}
+          />
+        </View>
         <Text style={loginStyle.loginHeader}>Welcome Back</Text>
         {cafeOwner ? (
           <Input label={"Matric No. |"} />
@@ -46,41 +50,5 @@ const Input = ({ label, secure }) => {
     </View>
   );
 };
-
-const loginStyle = StyleSheet.create({
-  loginHeader: {
-    fontSize: 32,
-    fontWeight: "600",
-    textAlign: "center",
-  },
-  logo: {
-    width: 212,
-    height: 99,
-    marginHorizontal: "auto",
-  },
-  inputContainer: {
-    flexDirection: "row",
-    marginTop: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    borderRadius: 9,
-    backgroundColor: "rgba(255, 255, 255, 1)",
-  },
-  inputLabel: {
-    fontSize: 12,
-    color: "rgba(160, 160, 160, 1)",
-  },
-  input: {
-    flex: 1,
-    marginLeft: 10,
-  },
-  smallText: {
-    marginTop: 21,
-    color: "rgba(0, 0, 0, 0.62)",
-    fontSize: 11,
-    fontWeight: "700",
-    textAlign: "center",
-  },
-});
 
 export default Login;

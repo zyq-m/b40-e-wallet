@@ -17,7 +17,7 @@ const StudentDashboard = () => {
         <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
         <Image
           style={dashboardStyle.logoutIcon}
-          source={require("../assets/icons/logout-icon.svg")}
+          source={require("../assets/icons/logout-icon.png")}
         />
       </View>
       <View style={{ marginTop: 24 }}>
@@ -33,7 +33,7 @@ const StudentDashboard = () => {
           </Text>
           <Image
             style={{ width: 25, height: 25 }}
-            source={require("../assets/icons/more-icon.svg")}
+            source={require("../assets/icons/more-icon.png")}
           />
         </View>
         <TransactionContainer>
