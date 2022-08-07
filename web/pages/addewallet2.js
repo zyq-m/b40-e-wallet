@@ -34,12 +34,10 @@ const coregform = () => {
                     <th>E-Wallet Balance</th>
                     <th>Matric Number</th>
                     <th>IC Number</th>
-                    <th>Select</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th>-</th>
                     <th>-</th>
                     <th>-</th>
                     <th>-</th>

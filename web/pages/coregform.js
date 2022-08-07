@@ -14,6 +14,17 @@ const coregform = () => {
                 alt=""
               />
       </button>
+      <button
+              className="ml-6 py-1 w-48 font-bold text-white bg-[#C6C0AB] rounded-[130px]"
+            >
+              Student Form <br /> Registration
+      </button>
+      <button
+              className="ml-6 py-1 w-48 font-bold text-white bg-[#4D4B42] rounded-[130px]"
+            >
+              Cafe Owner Form <br /> Registration
+      </button>
+
       </div>
       <div>
         <div className="p-9 rounded-2xl shadow-md bg-white w-[35rem]">

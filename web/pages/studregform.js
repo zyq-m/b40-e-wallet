@@ -16,7 +16,18 @@ const studregform = () => {
       </button>
 
       <button
-        className="mr-6 w-15 opacity-70"
+              className="ml-6 py-1 w-48 font-bold text-white bg-[#4D4B42] rounded-[130px]"
+            >
+              Student Form <br /> Registration
+      </button>
+      <button
+              className="ml-6 py-1 w-48 font-bold text-white bg-[#C6C0AB] rounded-[130px]"
+            >
+              Cafe Owner Form <br /> Registration
+      </button>
+
+      <button
+        className="mr-6 ml-6 w-15 opacity-70"
       >
         <img
                 className="justify-self-center w-[2.5rem]"
