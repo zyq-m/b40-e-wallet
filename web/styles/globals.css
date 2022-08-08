@@ -13,9 +13,12 @@
   margin: 0 auto;
 }
 .centertable {
-  background-color: white;
-  border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
   width: 100%
+}
+
+table, th, td {
+  background-color: white;
+  border: 1px solid black;;
 }
