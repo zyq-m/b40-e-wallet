@@ -43,13 +43,13 @@ const Transaction = ({ navigation }) => {
           <TouchableOpacity>
             <Image
               style={transactionStyle.printIcon}
-              source={require("../assets/icons/print-icon.svg")}
+              source={require("../assets/icons/print-icon.png")}
             />
           </TouchableOpacity>
           <TouchableOpacity onPress={onCollapse}>
             <Image
               style={transactionStyle.fitlerIcon}
-              source={require("../assets/icons/filter-icon.svg")}
+              source={require("../assets/icons/filter-icon.png")}
             />
           </TouchableOpacity>
         </View>

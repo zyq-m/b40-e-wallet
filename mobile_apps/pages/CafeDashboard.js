@@ -11,12 +11,12 @@ import dashboardStyle from "../styles/dashboardStyle";
 
 const CafeDashboard = () => {
   return (
-    <View style={[globals.container, { paddingTop: 22 }]}>
+    <View style={[globals.container, { paddingTop: 48 }]}>
       <View style={dashboardStyle.logoutContainer}>
         <Profile textField1={"Kafe Mamada"} textField2={"mamada69"} />
         <Image
           style={dashboardStyle.logoutIcon}
-          source={require("../assets/icons/logout-icon.svg")}
+          source={require("../assets/icons/logout-icon.png")}
         />
       </View>
       <View style={{ marginTop: 24 }}>
@@ -29,7 +29,7 @@ const CafeDashboard = () => {
           </Text>
           <Image
             style={{ width: 25, height: 25 }}
-            source={require("../assets/icons/more-icon.svg")}
+            source={require("../assets/icons/more-icon.png")}
           />
         </View>
         <TransactionContainer>

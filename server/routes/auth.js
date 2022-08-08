@@ -16,17 +16,17 @@ const loginStudents = (request, response) => {
     (error, results) => {
       if (error) return response.sendStatus(500);
       if (results.rowCount === 0) return response.sendStatus(404);
+
+      const accessToken = generateAccessToken(user);
+      const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+      refreshTokens.push(refreshToken);
+
+      return response.json({
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+      });
     }
   );
-
-  const accessToken = generateAccessToken(user);
-  const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-  refreshTokens.push(refreshToken);
-
-  return response.json({
-    accessToken: accessToken,
-    refreshToken: refreshToken,
-  });
 };
 
 const loginCafe = (request, response) => {
@@ -39,17 +39,17 @@ const loginCafe = (request, response) => {
     (error, results) => {
       if (error) return response.sendStatus(500);
       if (results.rowCount === 0) return response.sendStatus(404);
+
+      const accessToken = generateAccessToken(user);
+      const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+      refreshTokens.push(refreshToken);
+
+      return response.json({
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+      });
     }
   );
-
-  const accessToken = generateAccessToken(user);
-  const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-  refreshTokens.push(refreshToken);
-
-  return response.json({
-    accessToken: accessToken,
-    refreshToken: refreshToken,
-  });
 };
 
 const loginAdmin = (request, response) => {
@@ -62,17 +62,17 @@ const loginAdmin = (request, response) => {
     (error, results) => {
       if (error) return response.sendStatus(500);
       if (results.rowCount === 0) return response.sendStatus(404);
+
+      const accessToken = generateAccessToken(user);
+      const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+      refreshTokens.push(refreshToken);
+
+      return response.json({
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+      });
     }
   );
-
-  const accessToken = generateAccessToken(user);
-  const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-  refreshTokens.push(refreshToken);
-
-  return response.json({
-    accessToken: accessToken,
-    refreshToken: refreshToken,
-  });
 };
 
 const generateAccessToken = user =>

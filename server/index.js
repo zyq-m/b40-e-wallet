@@ -4,11 +4,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const app = express();
+const cors = require("cors");
+
 const authRouter = require("./routes/auth");
 const studentRouter = require("./routes/students");
 const cafeRouter = require("./routes/cafeOwners");
 const transactionRouter = require("./routes/transactions");
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
