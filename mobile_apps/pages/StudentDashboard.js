@@ -1,4 +1,3 @@
-import React from "react";
 import { View, Text, Image } from "react-native";
 
 import Button from "../components/Button";
@@ -10,9 +9,9 @@ import TransactionItem from "../components/TransactionItem";
 import globals from "../styles/globals";
 import dashboardStyle from "../styles/dashboardStyle";
 
-const StudentDashboard = () => {
+const StudentDashboard = ({ navigation }) => {
   return (
-    <View style={[globals.container, { paddingTop: 22 }]}>
+    <View style={[globals.container, { paddingTop: 48 }]}>
       <View style={dashboardStyle.logoutContainer}>
         <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
         <Image
@@ -24,7 +23,7 @@ const StudentDashboard = () => {
         <Amount amount={150} student={true} />
       </View>
       <View style={{ marginTop: 20 }}>
-        <Button label={"Pay"} />
+        <Button label={"Pay"} onPress={() => navigation.navigate("Pay Now")} />
       </View>
       <View style={{ marginTop: 40 }}>
         <View style={[dashboardStyle.transactionHeaderWrap]}>
