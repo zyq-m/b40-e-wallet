@@ -20,17 +20,17 @@ const dashboard = () => {
       </div>
       <Menu img={register.src} title="Registration Form" />
       <Menu img={wallet.src} title="Add E-Wallet Point" />
-      <Menu img={transaction.src} title="Transaction Details" />
+      <Menu img={transaction.src} title="Transaction Details" /> 
     </div>
   );
 };
 
 const Menu = ({ img, title }) => {
   return (
-    <div className="flex flex-col items-center justify-center px-[3rem] rounded-[130px] bg-[#FFD400]">
+    <button className="flex flex-col items-center justify-center px-[3rem] rounded-[130px] bg-[#FFD400]">
       <img src={img} />
       <p className="font-bold text-[3rem] text-center">{title}</p>
-    </div>
+    </button>
   );
 };
 

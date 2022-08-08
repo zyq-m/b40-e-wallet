@@ -21,9 +21,13 @@ const coregform = () => {
           </form>
           <br />
           <br />
+          <div className="float-right font-medium">
+            <p>Select All <input type="checkbox" /></p>
+          </div>
           <br />
-          <table className="centertable">
-            <thead>
+          <div className="h-[650px] border-[1px] border-black bg-[#FFFFFF]">
+            <table className="centertable">
+              <thead>
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
@@ -32,8 +36,8 @@ const coregform = () => {
                     <th>IC Number</th>
                     <th>Select</th>
                 </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
                 <tr>
                     <th>-</th>
                     <th>-</th>
@@ -42,8 +46,9 @@ const coregform = () => {
                     <th>-</th>
                     <th><input type="checkbox" /></th>
                 </tr>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
           <br />
           <button
               type="submit"
