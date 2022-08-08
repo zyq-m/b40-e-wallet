@@ -25,9 +25,10 @@ const coregform = () => {
       </button>
       </div>
       <div className="w-4/5 items-center">
-      <h1 className="mb-6 font-bold text-3xl">Selected Student List</h1>
-          <table className="centertable">
-            <thead>
+        <h1 className="mb-6 font-bold text-3xl">Selected Student List</h1>
+          <div className="h-[650px] border-[1px] border-black bg-[#FFFFFF]">
+            <table className="centertable">
+              <thead>
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
@@ -35,8 +36,8 @@ const coregform = () => {
                     <th>Matric Number</th>
                     <th>IC Number</th>
                 </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
                 <tr>
                     <th>-</th>
                     <th>-</th>
@@ -44,8 +45,9 @@ const coregform = () => {
                     <th>-</th>
                     <th>-</th>
                 </tr>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
           <br />
           <button
               type="submit"
@@ -53,6 +55,9 @@ const coregform = () => {
             >
               Add E-Wallet Point
             </button>
+            <div className="mr-2 float-right w-97 bg-[#FFD400] rounded-full">
+              <p className="flex items-center h-[42px] font-semibold ml-5">Enter The Amount Of E-Wallet Point<Input type="ewalletpoint" placeholder="Enter Value" /></p>
+            </div>
       </div>
     </div>
   );
@@ -62,7 +67,7 @@ const Input = ({ type, placeholder }) => {
   return (
     <>
       <input
-        className="float-right border w-full px-2 py-2 border-gray-300 rounded-md"
+      className="ml-4 text-center float-right border w-32 py-2 border-black bg-[#FFF4B8] rounded-full"
         type={type}
         placeholder={placeholder}
       />
