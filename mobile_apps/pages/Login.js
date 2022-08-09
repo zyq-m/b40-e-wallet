@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Image } from "react-native";
+import axios from "axios";
 
 import Button from "../components/Button";
 
 import instanceAxios from "../lib/instanceAxios";
+import { useUserContext } from "../hooks/useUserContext";
+import { save, getValueFor } from "../utils/SecureStore";
 
 import globals from "../styles/globals";
 import loginStyle from "../styles/loginStyle";
@@ -13,6 +16,11 @@ const Login = ({ navigation }) => {
   const [studentAcc, setStudentAcc] = useState("");
   const [cafeAcc, setCafeAcc] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser } = useUserContext();
+
+  const authUser = id => {
+    setUser({ id: id, login: true });
+  };
 
   const onSubmit = () => {
     if (cafeOwner) {
@@ -21,19 +29,31 @@ const Login = ({ navigation }) => {
           username: cafeAcc,
           password: password,
         })
-        .then(res => console.log(res))
+        // .then(res => console.log(res))
+        .then(() => authUser(cafeAcc))
         .then(() => navigation.navigate("Cafe Dashboard"))
-        .catch(err => alert("Wrong matric no./sehesss"));
+        .catch(err => alert(err));
     } else {
       instanceAxios
         .post("/students/login", {
           matric_no: studentAcc,
           password: password,
         })
-        .then(res => console.log(res))
+        // .then(res => console.log(res))
+        .then(() => authUser(studentAcc))
         .then(() => navigation.navigate("Student Dashboard"))
-        .catch(err => alert("Wrong matric no./username or password"));
+        .catch(err => alert(err));
     }
+  };
+
+  const onSubmitt = () => {
+    axios
+      .get("https://catfact.ninja/fact")
+      .then(res => {
+        alert(res);
+        console.log(res);
+      })
+      .catch(err => alert(err));
   };
 
   return (

@@ -1,4 +1,8 @@
 import { View, Text, Image } from "react-native";
+import { useEffect } from "react";
+
+import instanceAxios from "../lib/instanceAxios";
+import { useUserContext } from "../hooks/useUserContext";
 
 import Button from "../components/Button";
 import Profile from "../components/Profile";
@@ -10,6 +14,12 @@ import globals from "../styles/globals";
 import dashboardStyle from "../styles/dashboardStyle";
 
 const StudentDashboard = ({ navigation }) => {
+  const { user } = useUserContext();
+
+  useEffect(() => {
+    // console.log(user);
+  });
+
   return (
     <View style={[globals.container, { paddingTop: 48 }]}>
       <View style={dashboardStyle.logoutContainer}>
@@ -23,7 +33,7 @@ const StudentDashboard = ({ navigation }) => {
         <Amount amount={150} student={true} />
       </View>
       <View style={{ marginTop: 20 }}>
-        <Button label={"Pay"} onPress={() => navigation.navigate("Pay Now")} />
+        <Button label={"Pay"} onPress={() => navigation.navigate("QR Scan")} />
       </View>
       <View style={{ marginTop: 40 }}>
         <View style={[dashboardStyle.transactionHeaderWrap]}>
