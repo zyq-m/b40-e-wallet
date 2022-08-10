@@ -42,6 +42,7 @@ const login = () => {
   );
 };
 
+
 const Input = ({ type, placeholder }) => {
   return (
     <>
