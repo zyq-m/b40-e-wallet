@@ -1,27 +1,11 @@
 import React from "react";
-import register from "../assets/register.png";
-import transaction from "../assets/transaction.png";
-import wallet from "../assets/wallet.png";
-import images from "../assets/icons/index";
+import Layout from "../components/Layout";
 
 const dashboard = () => {
   return (
-    <div className="min-h-screen p-8 flex gap-[2rem] justify-center bg-[#FFF7D9]">
-      <div className="justify-self-start">
-      <button
-        className="ml-6 mt-6 w-15 opacity-70"
-      >
-        <img
-                className="justify-self-center w-[3.0rem]"
-                src={images.listbarIcon.src}
-                alt=""
-              />
-      </button>
-      </div>
-      <Menu img={register.src} title="Registration Form" />
-      <Menu img={wallet.src} title="Add E-Wallet Point" />
-      <Menu img={transaction.src} title="Transaction Details" /> 
-    </div>
+    <Layout>
+      <h1>This is dashboard</h1>
+    </Layout>
   );
 };
 
