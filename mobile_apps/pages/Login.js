@@ -18,8 +18,13 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const { setUser } = useUserContext();
 
-  const authUser = id => {
-    setUser({ id: id, login: true });
+  const authUser = (id, secret, refresh) => {
+    setUser({
+      id: id,
+      login: true,
+      secretToken: secret,
+      refreshToken: refresh,
+    });
   };
 
   const onSubmit = () => {
@@ -29,9 +34,10 @@ const Login = ({ navigation }) => {
           username: cafeAcc,
           password: password,
         })
-        // .then(res => console.log(res))
-        .then(() => authUser(cafeAcc))
-        .then(() => navigation.navigate("Cafe Dashboard"))
+        .then(res => {
+          authUser(cafeAcc, res.data.accessToken, res.data.refreshToken);
+          navigation.navigate("Cafe Dashboard");
+        })
         .catch(err => alert(err));
     } else {
       instanceAxios
@@ -39,21 +45,12 @@ const Login = ({ navigation }) => {
           matric_no: studentAcc,
           password: password,
         })
-        // .then(res => console.log(res))
-        .then(() => authUser(studentAcc))
-        .then(() => navigation.navigate("Student Dashboard"))
+        .then(res => {
+          authUser(studentAcc, res.data.accessToken, res.data.refreshToken);
+          navigation.navigate("Student Dashboard");
+        })
         .catch(err => alert(err));
     }
-  };
-
-  const onSubmitt = () => {
-    axios
-      .get("https://catfact.ninja/fact")
-      .then(res => {
-        alert(res);
-        console.log(res);
-      })
-      .catch(err => alert(err));
   };
 
   return (

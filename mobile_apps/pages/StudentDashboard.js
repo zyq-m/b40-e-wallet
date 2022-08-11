@@ -1,5 +1,5 @@
 import { View, Text, Image } from "react-native";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import instanceAxios from "../lib/instanceAxios";
 import { useUserContext } from "../hooks/useUserContext";
@@ -15,22 +15,38 @@ import dashboardStyle from "../styles/dashboardStyle";
 
 const StudentDashboard = ({ navigation }) => {
   const { user } = useUserContext();
+  const [userData, setUserData] = useState(null);
+
+  const fetchUser = (id, token) => {
+    instanceAxios
+      .get(`/students/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(res => setUserData(res.data[0]));
+  };
 
   useEffect(() => {
-    // console.log(user);
+    fetchUser(user.id, user.secretToken);
   });
 
   return (
     <View style={[globals.container, { paddingTop: 48 }]}>
       <View style={dashboardStyle.logoutContainer}>
-        <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
+        {userData && (
+          <Profile
+            textField1={userData.student_name}
+            textField2={userData.matric_no}
+          />
+        )}
         <Image
           style={dashboardStyle.logoutIcon}
           source={require("../assets/icons/logout-icon.png")}
         />
       </View>
       <View style={{ marginTop: 24 }}>
-        <Amount amount={150} student={true} />
+        {userData && <Amount amount={userData.wallet_amount} student={true} />}
       </View>
       <View style={{ marginTop: 20 }}>
         <Button label={"Pay"} onPress={() => navigation.navigate("QR Scan")} />
