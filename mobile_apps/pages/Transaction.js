@@ -29,6 +29,13 @@ const data = [
     date: "9 July 2022",
     amount: "2.00",
   },
+  {
+    id: 4,
+    noMatric: "012345",
+    time: "8.00am",
+    date: "9 July 2022",
+    amount: "2.00",
+  },
 ];
 
 const Transaction = ({ navigation }) => {
@@ -40,12 +47,12 @@ const Transaction = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <View style={transactionStyle.row}>
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <Image
               style={transactionStyle.printIcon}
               source={require("../assets/icons/print-icon.png")}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={onCollapse}>
             <Image
               style={transactionStyle.fitlerIcon}

@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import globals from "../styles/globals";
 import QRScanStyle from "../styles/QRScanStyle";
 
-const QRScan = () => {
+const QRScan = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -20,7 +20,7 @@ const QRScan = () => {
 
   const handleQRScan = ({ data }) => {
     setScanned(true);
-    navigation.navigate("pay", { qrData: data });
+    navigation.navigate("Pay Now", { qrData: data });
   };
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const QRScan = () => {
         </View>
       </View>
       <View style={{ paddingBottom: 24 }}>
-        <Button label={"Scan again"} />
+        <Button label={"Scan again"} onPress={() => setScanned(false)} />
       </View>
     </View>
   );

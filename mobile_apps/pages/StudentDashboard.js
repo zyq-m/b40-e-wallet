@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 
 import instanceAxios from "../lib/instanceAxios";
@@ -15,7 +15,11 @@ import dashboardStyle from "../styles/dashboardStyle";
 
 const StudentDashboard = ({ navigation }) => {
   const { user } = useUserContext();
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState({
+    student_name: "Ahmad Utat bin Abu",
+    matric_no: "012345",
+    wallet_amount: 150,
+  });
 
   const fetchUser = (id, token) => {
     instanceAxios
@@ -28,7 +32,7 @@ const StudentDashboard = ({ navigation }) => {
   };
 
   useEffect(() => {
-    fetchUser(user.id, user.secretToken);
+    // fetchUser(user.id, user.secretToken);
   });
 
   return (
@@ -40,10 +44,12 @@ const StudentDashboard = ({ navigation }) => {
             textField2={userData.matric_no}
           />
         )}
-        <Image
-          style={dashboardStyle.logoutIcon}
-          source={require("../assets/icons/logout-icon.png")}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("login")}>
+          <Image
+            style={dashboardStyle.logoutIcon}
+            source={require("../assets/icons/logout-icon.png")}
+          />
+        </TouchableOpacity>
       </View>
       <View style={{ marginTop: 24 }}>
         {userData && <Amount amount={userData.wallet_amount} student={true} />}

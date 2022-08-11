@@ -1,7 +1,10 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import CheckBox from "expo-checkbox";
 
 const TransactionItem = ({ noBorder, field1, time, date, amount, cafe }) => {
+  const [checked, setChecked] = useState(false);
+
   return (
     <View
       style={[
@@ -23,9 +26,16 @@ const TransactionItem = ({ noBorder, field1, time, date, amount, cafe }) => {
           </Text>
         </View>
       </View>
-      <Text style={transactionItemStyle.transactionAmount}>
-        {cafe ? "+" : "-"}RM{amount}
-      </Text>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <Text style={transactionItemStyle.transactionAmount}>
+          {cafe ? "+" : "-"}RM{amount}
+        </Text>
+        {cafe && (
+          <TouchableOpacity>
+            <CheckBox value={checked} onValueChange={setChecked} />
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };
@@ -48,6 +58,7 @@ const transactionItemStyle = StyleSheet.create({
     color: "rgba(0, 0, 0, 0.47)",
   },
   transactionAmount: {
+    marginRight: 12,
     fontSize: 12,
     fontWeight: "600",
   },

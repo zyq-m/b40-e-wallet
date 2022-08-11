@@ -53,6 +53,14 @@ const Login = ({ navigation }) => {
     }
   };
 
+  const onRoute = () => {
+    if (cafeOwner) {
+      navigation.navigate("Cafe Dashboard");
+    } else {
+      navigation.navigate("Student Dashboard");
+    }
+  };
+
   return (
     <View style={[globals.container, { justifyContent: "center" }]}>
       <View>
@@ -83,7 +91,7 @@ const Login = ({ navigation }) => {
           getInput={setPassword}
         />
         <View style={{ marginTop: 37 }}>
-          <Button label={"Login"} onPress={onSubmit} />
+          <Button label={"Login"} onPress={onRoute} />
         </View>
         <Text
           style={loginStyle.smallText}

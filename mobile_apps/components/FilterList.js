@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 
+import Button from "./Button";
+
 import filterStyle from "../styles/filterStyle";
 
 const FilterList = ({ onCollapse }) => {
@@ -62,6 +64,9 @@ const FilterList = ({ onCollapse }) => {
             active={checked.item3}
             onActive={() => onChecked("item3")}
           />
+        </View>
+        <View style={{ marginTop: 20 }}>
+          <Button label={"Print"} />
         </View>
       </View>
     </View>
