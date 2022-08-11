@@ -40,12 +40,12 @@ const Transaction = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <View style={transactionStyle.row}>
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <Image
               style={transactionStyle.printIcon}
               source={require("../assets/icons/print-icon.svg")}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={onCollapse}>
             <Image
               style={transactionStyle.fitlerIcon}

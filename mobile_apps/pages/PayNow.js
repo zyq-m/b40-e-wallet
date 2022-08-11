@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import globals from "../styles/globals";
 import payNowStyle from "../styles/payNowStyle";
 
-const PayNow = () => {
+const PayNow = ({ navigation }) => {
   const [active, setActive] = useState({ btn1: true, btn2: false });
 
   const onActive = value => {
@@ -16,6 +16,11 @@ const PayNow = () => {
     if ("btn2" === value) {
       setActive({ btn1: false, btn2: true });
     }
+  };
+
+  const onPay = () => {
+    alert("Payment successfully☑️");
+    navigation.navigate("studentDashboard");
   };
 
   return (
@@ -48,7 +53,7 @@ const PayNow = () => {
         </TouchableOpacity>
       </View>
       <View style={{ paddingBottom: 24 }}>
-        <Button label={"Pay Now"} />
+        <Button label={"Pay Now"} onAction={onPay} />
       </View>
     </View>
   );

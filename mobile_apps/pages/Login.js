@@ -7,6 +7,14 @@ import Button from "../components/Button";
 const Login = ({ navigation }) => {
   const [cafeOwner, setCafeOwner] = useState(false);
 
+  const onSubmit = () => {
+    if (cafeOwner) {
+      navigation.navigate("cafeDashboard");
+    } else {
+      navigation.navigate("studentDashboard");
+    }
+  };
+
   return (
     <View style={[globals.container, { justifyContent: "center" }]}>
       <View>
@@ -16,19 +24,19 @@ const Login = ({ navigation }) => {
         />
         <Text style={loginStyle.loginHeader}>Welcome Back</Text>
         {cafeOwner ? (
-          <Input label={"Matric No. |"} />
-        ) : (
           <Input label={"Username |"} />
+        ) : (
+          <Input label={"Matric No. |"} />
         )}
         <Input label={"Password |"} secure={true} />
         <View style={{ marginTop: 37 }}>
-          <Button label={"Login"} />
+          <Button label={"Login"} onAction={onSubmit} />
         </View>
         <Text
           style={loginStyle.smallText}
           onPress={() => setCafeOwner(!cafeOwner)}
         >
-          {cafeOwner ? "Are you a cafe owner?" : "Are you a student?"}
+          {cafeOwner ? "Are you a student?" : "Are you a cafe owner?"}
         </Text>
       </View>
     </View>

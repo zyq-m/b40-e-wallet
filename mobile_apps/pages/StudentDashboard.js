@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
 import Button from "../components/Button";
 import Profile from "../components/Profile";
@@ -10,21 +10,23 @@ import TransactionItem from "../components/TransactionItem";
 import globals from "../styles/globals";
 import dashboardStyle from "../styles/dashboardStyle";
 
-const StudentDashboard = () => {
+const StudentDashboard = ({ navigation }) => {
   return (
     <View style={[globals.container, { paddingTop: 22 }]}>
       <View style={dashboardStyle.logoutContainer}>
         <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
-        <Image
-          style={dashboardStyle.logoutIcon}
-          source={require("../assets/icons/logout-icon.svg")}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("login")}>
+          <Image
+            style={dashboardStyle.logoutIcon}
+            source={require("../assets/icons/logout-icon.svg")}
+          />
+        </TouchableOpacity>
       </View>
       <View style={{ marginTop: 24 }}>
         <Amount amount={150} student={true} />
       </View>
       <View style={{ marginTop: 20 }}>
-        <Button label={"Pay"} />
+        <Button label={"Pay"} onAction={() => navigation.navigate("QR Scan")} />
       </View>
       <View style={{ marginTop: 40 }}>
         <View style={[dashboardStyle.transactionHeaderWrap]}>

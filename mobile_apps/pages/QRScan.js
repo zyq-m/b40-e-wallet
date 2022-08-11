@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import globals from "../styles/globals";
 import QRScanStyle from "../styles/QRScanStyle";
 
-const QRScan = () => {
+const QRScan = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -58,7 +58,10 @@ const QRScan = () => {
         </View>
       </View>
       <View style={{ paddingBottom: 24 }}>
-        <Button label={"Scan again"} />
+        <Button
+          label={"Scan again"}
+          onAction={() => navigation.navigate("payNow")}
+        />
       </View>
     </View>
   );
