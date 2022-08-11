@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-=======
-import { View, Text, Image } from "react-native";
->>>>>>> 2486dbdccc412994c493f05d6ff09f668cca0c39
 
 import Button from "../components/Button";
 import Profile from "../components/Profile";
@@ -19,29 +15,18 @@ const StudentDashboard = ({ navigation }) => {
     <View style={[globals.container, { paddingTop: 48 }]}>
       <View style={dashboardStyle.logoutContainer}>
         <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
-<<<<<<< HEAD
         <TouchableOpacity onPress={() => navigation.navigate("login")}>
           <Image
             style={dashboardStyle.logoutIcon}
-            source={require("../assets/icons/logout-icon.svg")}
+            source={require("../assets/icons/logout-icon.png")}
           />
         </TouchableOpacity>
-=======
-        <Image
-          style={dashboardStyle.logoutIcon}
-          source={require("../assets/icons/logout-icon.png")}
-        />
->>>>>>> 2486dbdccc412994c493f05d6ff09f668cca0c39
       </View>
       <View style={{ marginTop: 24 }}>
         <Amount amount={150} student={true} />
       </View>
       <View style={{ marginTop: 20 }}>
-<<<<<<< HEAD
         <Button label={"Pay"} onAction={() => navigation.navigate("QR Scan")} />
-=======
-        <Button label={"Pay"} onPress={() => navigation.navigate("Pay Now")} />
->>>>>>> 2486dbdccc412994c493f05d6ff09f668cca0c39
       </View>
       <View style={{ marginTop: 40 }}>
         <View style={[dashboardStyle.transactionHeaderWrap]}>

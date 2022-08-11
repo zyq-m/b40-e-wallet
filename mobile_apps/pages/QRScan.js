@@ -20,7 +20,7 @@ const QRScan = ({ navigation }) => {
 
   const handleQRScan = ({ data }) => {
     setScanned(true);
-    navigation.navigate("pay", { qrData: data });
+    navigation.navigate("Pay Now", { qrData: data });
   };
 
   useEffect(() => {
@@ -67,10 +67,7 @@ const QRScan = ({ navigation }) => {
         </View>
       </View>
       <View style={{ paddingBottom: 24 }}>
-        <Button
-          label={"Scan again"}
-          onAction={() => navigation.navigate("payNow")}
-        />
+        <Button label={"Scan again"} onAction={() => setScanned(false)} />
       </View>
     </View>
   );

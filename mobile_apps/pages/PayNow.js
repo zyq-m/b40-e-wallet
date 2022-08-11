@@ -20,7 +20,7 @@ const PayNow = ({ navigation }) => {
 
   const onPay = () => {
     alert("Payment successfully☑️");
-    navigation.navigate("studentDashboard");
+    navigation.navigate("Student Dashboard");
   };
 
   return (
