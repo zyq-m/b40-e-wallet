@@ -42,13 +42,13 @@ const FilterList = ({ onCollapse }) => {
         <View style={filterStyle.filterRow}>
           <TouchableOpacity onPress={onCollapse}>
             <Image
-              style={{ width: 10, height: 10 }}
-              source={require("../assets/icons/close-icon.svg")}
+              style={{ width: 12, height: 12 }}
+              source={require("../assets/icons/close-icon.png")}
             />
           </TouchableOpacity>
           <Text style={filterStyle.filterHeader}>Sort by</Text>
         </View>
-        <View style={{ marginTop: 4 }}>
+        <View style={{ marginTop: 10 }}>
           <FilterItem
             label={"Today"}
             active={checked.item1}
@@ -80,13 +80,13 @@ const FilterItem = ({ label, active, onActive }) => {
         style={[
           filterStyle.filterRow,
           filterStyle.filterItemSpace,
-          { flex: 1, justifyContent: "space-between" },
+          { justifyContent: "space-between" },
         ]}
       >
         <View style={[filterStyle.filterRow]}>
           <Image
             style={filterStyle.calenderIcon}
-            source={require("../assets/icons/calender-icon.svg")}
+            source={require("../assets/icons/calender-icon.png")}
           />
           <Text style={filterStyle.filterItemTxt}>{label}</Text>
         </View>
@@ -94,7 +94,7 @@ const FilterItem = ({ label, active, onActive }) => {
         {active && (
           <Image
             style={filterStyle.checkedIcon}
-            source={require("../assets/icons/checked-icon.svg")}
+            source={require("../assets/icons/checked-icon.png")}
           />
         )}
       </View>

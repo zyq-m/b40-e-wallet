@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, Image } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 import Button from "../components/Button";
@@ -31,28 +31,37 @@ const QRScan = ({ navigation }) => {
     <View style={globals.container}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleQRScan}
-        style={StyleSheet.absoluteFillObject}
+        style={QRScanStyle.barcode}
       />
-      <View style={{ flex: 1, justifyContent: "center" }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View style={QRScanStyle.scanner}>
           <View style={QRScanStyle.row}>
             <Image
               style={[QRScanStyle.square]}
-              source={require("../assets/QRScanner.svg")}
+              source={require("../assets/icons/scanner-icon.png")}
             />
             <Image
-              style={[QRScanStyle.square, { transform: "scaleX(-1)" }]}
-              source={require("../assets/QRScanner.svg")}
+              style={[
+                QRScanStyle.square,
+                { transform: [{ rotateY: "180deg" }] },
+              ]}
+              source={require("../assets/icons/scanner-icon.png")}
             />
           </View>
           <View style={QRScanStyle.row}>
             <Image
-              style={[QRScanStyle.square, { transform: "scaleY(-1)" }]}
-              source={require("../assets/QRScanner.svg")}
+              style={[
+                QRScanStyle.square,
+                { transform: [{ rotateX: "180deg" }] },
+              ]}
+              source={require("../assets/icons/scanner-icon.png")}
             />
             <Image
-              style={[QRScanStyle.square, { transform: "scale(-1)" }]}
-              source={require("../assets/QRScanner.svg")}
+              style={[
+                QRScanStyle.square,
+                { transform: [{ rotate: "-180deg" }] },
+              ]}
+              source={require("../assets/icons/scanner-icon.png")}
             />
           </View>
         </View>

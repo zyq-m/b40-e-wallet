@@ -19,9 +19,9 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="login" component={Login} />
-        <Stack.Screen name="studentDashboard" component={StudentDashboard} />
-        <Stack.Screen name="cafeDashboard" component={CafeDashboard} />
-        <Stack.Screen name="payNow" component={PayNow} />
+        <Stack.Screen name="Student Dashboard" component={StudentDashboard} />
+        <Stack.Screen name="Cafe Dashboard" component={CafeDashboard} />
+        <Stack.Screen name="Pay Now" component={PayNow} />
         <Stack.Screen
           name="QR Scan"
           component={QRScan}

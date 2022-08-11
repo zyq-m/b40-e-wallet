@@ -52,10 +52,10 @@ const profileStyle = StyleSheet.create({
     borderRadius: 999,
   },
   profileTextContainer: {
-    height: "fit-content",
     marginLeft: -16,
     paddingVertical: 11,
-    paddingHorizontal: 30,
+    paddingRight: 30,
+    paddingLeft: 20,
     borderRadius: 9,
     zIndex: -1,
   },
