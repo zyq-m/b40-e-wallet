@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
+import Button from "./Button";
+
 import { logo } from "../assets";
 
 const NavBar = () => {
@@ -38,9 +40,9 @@ const NavBar = () => {
         </li>
       </ul>
       <div>
-        <button className="py-2 px-5 font-medium bg-[#FFD400] rounded-md">
+        <Button>
           <Link href="/">Logout</Link>
-        </button>
+        </Button>
       </div>
     </nav>
   );

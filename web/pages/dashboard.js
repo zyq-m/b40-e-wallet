@@ -4,17 +4,38 @@ import Layout from "../components/Layout";
 const dashboard = () => {
   return (
     <Layout>
-      <h1>This is dashboard</h1>
+      <div className="w-[60%]">
+        <h1 className="ml-3 mb-2 text-xl">Summary</h1>
+        <div className="flex gap-9 p-6 border rounded-md bg-white">
+          <div className="flex-1">
+            <div className="pb-2 uppercase text-sm font-semibold border-b-2 border-b-black">
+              Total Student
+            </div>
+            <div className="mt-3 text-gray-600">
+              <span className="text-black text-7xl font-semibold">54</span>{" "}
+              students
+            </div>
+          </div>
+          <div className="flex-1">
+            <div className="pb-2 uppercase text-sm font-semibold border-b-2 border-b-black">
+              Total Cafe
+            </div>
+            <div className="mt-3 text-gray-600">
+              <span className="text-black text-7xl font-semibold">6</span> cafe
+            </div>
+          </div>
+          <div className="flex-1">
+            <div className="pb-2 uppercase text-sm font-semibold border-b-2 border-b-black">
+              Today Transaction
+            </div>
+            <div className="mt-3 text-gray-600 ">
+              <span className="text-black text-7xl font-semibold">120</span>{" "}
+              transactions
+            </div>
+          </div>
+        </div>
+      </div>
     </Layout>
-  );
-};
-
-const Menu = ({ img, title }) => {
-  return (
-    <button className="flex flex-col items-center justify-center px-[3rem] rounded-[130px] bg-[#FFD400]">
-      <img src={img} />
-      <p className="font-bold text-[3rem] text-center">{title}</p>
-    </button>
   );
 };
 

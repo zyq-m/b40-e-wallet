@@ -1,76 +1,84 @@
 import React from "react";
-import images from "../assets/icons/index";
 
-const coregform = () => {
+import Layout from "../components/Layout";
+import Input from "../components/Input";
+import Button from "../components/Button";
+
+const addWallet = () => {
   return (
-    <div className="min-h-screen grid place-items-center grid-rows-[max-content_1fr] bg-[#FFF7D9]">
-      <div className="justify-self-start">
-      <button
-        className="ml-6 mt-6 w-15 opacity-70"
-      >
-        <img
-                className="justify-self-center w-[3.0rem]"
-                src={images.listbarIcon.src}
-                alt=""
-              />
-      </button>
-      </div>
-      <div className="w-2/3 items-center">
-          <form>
-              <Input type="search" placeholder="Search by Name/ Matric Number/ IC Number..." />        
-          </form>
-          <br />
-          <br />
-          <div className="float-right font-medium">
-            <p>Select All <input type="checkbox" /></p>
+    <Layout>
+      <div className="mt-4 w-2/3 items-center">
+        <form>
+          <Input
+            type="search"
+            placeholder="Search for name, matric number, ic number"
+          />
+        </form>
+        <div className="mt-6 font-medium">
+          <p>
+            Select All <input type="checkbox" />
+          </p>
+        </div>
+        <div className="mt-4 p-4 pt-0 border-[1px] rounded-md bg-[#FFFFFF] border-gray-300">
+          <table className="centertable">
+            <thead>
+              <tr>
+                <td className="pt-4 pb-3 w-[7%]">Select</td>
+                <td>Name</td>
+                <td>Matric Number</td>
+                <td>IC Number</td>
+                <td>Balance</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="py-1 text-center w-[7%]">
+                  <input type="checkbox" />
+                </td>
+                <td>Ahmad Utat bin Naim</td>
+                <td>012345</td>
+                <td>010323045890</td>
+                <td>RM0</td>
+              </tr>
+              <tr>
+                <td className="py-1 text-center w-[7%]">
+                  <input type="checkbox" />
+                </td>
+                <td>Ahmad Utat bin Naim</td>
+                <td>012345</td>
+                <td>010323045890</td>
+                <td>RM0</td>
+              </tr>
+              <tr>
+                <td className="py-1 text-center w-[7%]">
+                  <input type="checkbox" />
+                </td>
+                <td>Ahmad Utat bin Naim</td>
+                <td>012345</td>
+                <td>010323045890</td>
+                <td>RM0</td>
+              </tr>
+              <tr>
+                <td className="py-1 text-center w-[7%]">
+                  <input type="checkbox" />
+                </td>
+                <td>Ahmad Utat bin Naim</td>
+                <td>012345</td>
+                <td>010323045890</td>
+                <td>RM0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-6 flex justify-end gap-2">
+          <div className="w-[4rem]">
+            <Input type="number" />
           </div>
-          <br />
-          <div className="h-[650px] border-[1px] border-black bg-[#FFFFFF]">
-            <table className="centertable">
-              <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>E-Wallet Balance</th>
-                    <th>Matric Number</th>
-                    <th>IC Number</th>
-                    <th>Select</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                    <th>-</th>
-                    <th>-</th>
-                    <th>-</th>
-                    <th>-</th>
-                    <th>-</th>
-                    <th><input type="checkbox" /></th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <br />
-          <button
-              type="submit"
-              className="float-right mb-8 py-2 w-60 font-medium bg-[#FFD400] rounded-full"
-            >
-              Add E-Wallet Point
-            </button>
+          <Button>Add Point</Button>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
-const Input = ({ type, placeholder }) => {
-  return (
-    <>
-      <input
-        className="float-right border w-full px-2 py-2 border-gray-300 rounded-md"
-        type={type}
-        placeholder={placeholder}
-      />
-    </>
-  );
-};
-
-export default coregform;
+export default addWallet;
