@@ -27,7 +27,14 @@ export default function App() {
           <Stack.Screen name="login" component={Login} />
           <Stack.Screen name="Student Dashboard" component={StudentDashboard} />
           <Stack.Screen name="Cafe Dashboard" component={CafeDashboard} />
-          <Stack.Screen name="Pay Now" component={PayNow} />
+          <Stack.Screen
+            name="Pay Now"
+            component={PayNow}
+            options={{
+              headerShown: true,
+              headerTitleAlign: "center",
+            }}
+          />
           <Stack.Screen
             name="QR Scan"
             component={QRScan}

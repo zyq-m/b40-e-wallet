@@ -22,7 +22,7 @@ const CafeDashboard = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ marginTop: 24 }}>
-        <Amount amount={6} student={false} />
+        <Amount amount={8} student={false} />
       </View>
       <View style={{ marginTop: 40 }}>
         <View style={[dashboardStyle.transactionHeaderWrap]}>
