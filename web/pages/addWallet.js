@@ -1,10 +1,13 @@
 import React from "react";
 
+import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import Input from "../components/Input";
-import Button from "../components/Button";
+//import Button from "../components/Button";
 
 const addWallet = () => {
+  const router = useRouter();
+
   return (
     <Layout>
       <div className="mt-4 w-2/3 items-center">
@@ -74,7 +77,14 @@ const addWallet = () => {
           <div className="w-[4rem]">
             <Input type="number" />
           </div>
-          <Button>Add Point</Button>
+          <button
+          className="py-2 px-5 font-medium bg-[#FFD400] rounded-md"
+          type="submit"
+          onClick={() =>
+            router.push("/dashboard", alert("Student Wallet Point Updated"))
+          }
+
+          >Add Point</button>
         </div>
       </div>
     </Layout>
