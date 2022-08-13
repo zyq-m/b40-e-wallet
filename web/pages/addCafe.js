@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
+import { useRouter } from "next/router";
 import Input from "../components/Input";
 import Layout from "../components/Layout";
 
 const coregform = () => {
+  const router = useRouter();
+
   return (
     <Layout>
       <div className="p-9 rounded-2xl shadow-md bg-white w-[35rem]">
@@ -21,6 +24,7 @@ const coregform = () => {
           <button
             type="submit"
             className="mt-6 py-2 w-full font-medium bg-[#FFD400] rounded-md"
+            onClick={() => router.push("/dashboard")}
           >
             Register
           </button>
