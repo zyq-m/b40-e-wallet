@@ -21,7 +21,7 @@ const dashboard = () => {
               Total Cafe
             </div>
             <div className="mt-3 text-gray-600">
-              <span className="text-black text-7xl font-semibold">6</span> cafe
+              <span className="text-black text-7xl font-semibold">6</span> cafes
             </div>
           </div>
           <div className="flex-1">
