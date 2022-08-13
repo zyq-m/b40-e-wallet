@@ -24,7 +24,7 @@ const studregform = () => {
           <button
             type="submit"
             className="mt-6 py-2 w-full font-medium bg-[#FFD400] rounded-md"
-            onClick={() => router.push("/dashboard")}
+            onClick={() => router.push("/dashboard", alert("New Student Data Saved"))}
           >
             Register
           </button>
