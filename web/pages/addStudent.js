@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import Input from "../components/Input";
 
-const studregform = () => {
+const addStudent = () => {
   const router = useRouter();
 
   return (
@@ -24,7 +24,9 @@ const studregform = () => {
           <button
             type="submit"
             className="mt-6 py-2 w-full font-medium bg-[#FFD400] rounded-md"
-            onClick={() => router.push("/dashboard", alert("New Student Data Saved"))}
+            onClick={() =>
+              router.push("/dashboard", alert("New Student Data Saved"))
+            }
           >
             Register
           </button>
@@ -34,4 +36,4 @@ const studregform = () => {
   );
 };
 
-export default studregform;
+export default addStudent;
