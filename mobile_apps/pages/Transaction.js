@@ -29,6 +29,13 @@ const data = [
     date: "9 July 2022",
     amount: "2.00",
   },
+  {
+    id: 4,
+    noMatric: "012345",
+    time: "8.00am",
+    date: "9 July 2022",
+    amount: "2.00",
+  },
 ];
 
 const Transaction = ({ navigation }) => {

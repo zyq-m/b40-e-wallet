@@ -1,3 +1,8 @@
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import { useEffect, useState } from "react";
+
+import instanceAxios from "../lib/instanceAxios";
+import { useUserContext } from "../hooks/useUserContext";
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 
@@ -11,9 +16,36 @@ import globals from "../styles/globals";
 import dashboardStyle from "../styles/dashboardStyle";
 
 const StudentDashboard = ({ navigation }) => {
+  const { user } = useUserContext();
+  const [userData, setUserData] = useState({
+    student_name: "Ahmad Utat bin Abu",
+    matric_no: "012345",
+    wallet_amount: 150,
+  });
+
+  const fetchUser = (id, token) => {
+    instanceAxios
+      .get(`/students/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(res => setUserData(res.data[0]));
+  };
+
+  useEffect(() => {
+    // fetchUser(user.id, user.secretToken);
+  });
+
   return (
     <View style={[globals.container, { paddingTop: 48 }]}>
       <View style={dashboardStyle.logoutContainer}>
+        {userData && (
+          <Profile
+            textField1={userData.student_name}
+            textField2={userData.matric_no}
+          />
+        )}
         <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
         <TouchableOpacity onPress={() => navigation.navigate("login")}>
           <Image
@@ -23,9 +55,10 @@ const StudentDashboard = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ marginTop: 24 }}>
-        <Amount amount={150} student={true} />
+        {userData && <Amount amount={userData.wallet_amount} student={true} />}
       </View>
       <View style={{ marginTop: 20 }}>
+        <Button label={"Pay"} onPress={() => navigation.navigate("QR Scan")} />
         <Button label={"Pay"} onAction={() => navigation.navigate("QR Scan")} />
       </View>
       <View style={{ marginTop: 40 }}>

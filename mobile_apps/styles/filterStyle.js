@@ -21,7 +21,7 @@ const filterStyle = StyleSheet.create({
   filterContainer: {
     paddingHorizontal: 16,
     paddingTop: 13,
-    paddingBottom: 24,
+    paddingBottom: 0,
     backgroundColor: "rgba(255, 247, 217, 1)",
     borderTopRightRadius: 9,
     borderTopLeftRadius: 9,
