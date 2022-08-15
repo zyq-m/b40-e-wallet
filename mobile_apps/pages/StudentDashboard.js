@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 import instanceAxios from "../lib/instanceAxios";
 import { useUserContext } from "../hooks/useUserContext";
+import React from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
 import Button from "../components/Button";
 import Profile from "../components/Profile";
@@ -44,6 +46,7 @@ const StudentDashboard = ({ navigation }) => {
             textField2={userData.matric_no}
           />
         )}
+        <Profile textField1={"Muhd Ali bin Abu"} textField2={"012345"} />
         <TouchableOpacity onPress={() => navigation.navigate("login")}>
           <Image
             style={dashboardStyle.logoutIcon}
@@ -56,6 +59,7 @@ const StudentDashboard = ({ navigation }) => {
       </View>
       <View style={{ marginTop: 20 }}>
         <Button label={"Pay"} onPress={() => navigation.navigate("QR Scan")} />
+        <Button label={"Pay"} onAction={() => navigation.navigate("QR Scan")} />
       </View>
       <View style={{ marginTop: 40 }}>
         <View style={[dashboardStyle.transactionHeaderWrap]}>

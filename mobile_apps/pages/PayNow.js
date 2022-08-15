@@ -20,6 +20,8 @@ const PayNow = ({ navigation }) => {
 
   const onRoute = () => {
     alert("Payment successfull☑️");
+  const onPay = () => {
+    alert("Payment successfully☑️");
     navigation.navigate("Student Dashboard");
   };
 
@@ -54,6 +56,7 @@ const PayNow = ({ navigation }) => {
       </View>
       <View style={{ paddingBottom: 24 }}>
         <Button label={"Pay Now"} onPress={onRoute} />
+        <Button label={"Pay Now"} onAction={onPay} />
       </View>
     </View>
   );

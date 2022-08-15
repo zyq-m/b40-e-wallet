@@ -68,6 +68,7 @@ const QRScan = ({ navigation }) => {
       </View>
       <View style={{ paddingBottom: 24 }}>
         <Button label={"Scan again"} onPress={() => setScanned(false)} />
+        <Button label={"Scan again"} onAction={() => setScanned(false)} />
       </View>
     </View>
   );

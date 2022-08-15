@@ -11,7 +11,7 @@ import dashboardStyle from "../styles/dashboardStyle";
 
 const CafeDashboard = ({ navigation }) => {
   return (
-    <View style={[globals.container, { paddingTop: 48 }]}>
+    <View style={[globals.container, { paddingTop: 22 }]}>
       <View style={dashboardStyle.logoutContainer}>
         <Profile textField1={"Kafe Mamada"} textField2={"mamada69"} />
         <TouchableOpacity onPress={() => navigation.navigate("login")}>
